@@ -4,7 +4,6 @@
 Criado `src/aula26/casos-de-teste.ts` com o `type CasoDeTeste` (id, título, descrição e status de automação), três casos de uma suíte de login, e as funções tipadas `criarCaso`, `descrever` e `marcarAutomatizado`. Também há uma variável com anotação explícita (`totalDeCasos: number`) e outra sem anotação (`nomeDaSuite`, inferida pelo TS).
 
 ## Como rodar
-npm install
 npx tsx src/aula26/casos-de-teste.ts
 
 ## Erro de tipo provocado
