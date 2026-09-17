@@ -10,3 +10,12 @@ npx tsx src/aula26/casos-de-teste.ts
 Chamada `criarCaso('quatro', ...)`, passando string no parâmetro `id` (tipo `number`). O editor acusou:
 "Argument of type 'string' is not assignable to parameter of type 'number'."
 Print em `print-erro-tipo.png`.
+
+   <details>
+   <summary>📸 <b>Clique para expandir a evidência</b></summary>
+
+   <br>
+   
+<img width="1486" height="1079" alt="Captura de tela 2026-09-17 025651" src="https://github.com/user-attachments/assets/844df2db-7d3a-4e6e-a0dc-690c493619ce" />
+
+   </details>
