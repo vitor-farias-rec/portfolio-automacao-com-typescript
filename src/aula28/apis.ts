@@ -1,3 +1,5 @@
+export {};
+
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 // DEFINIR contratos de tipo
 type Post = {
