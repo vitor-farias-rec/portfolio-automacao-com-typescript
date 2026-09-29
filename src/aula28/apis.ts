@@ -20,8 +20,7 @@ async function listarPost(){
     const res = await fetch(`${BASE_URL}/posts`);
     const dados: Post[] = await res.json();
     console.log(`✅ Status: ${res.status}`);
-    console.log(`Lidos ${dados.length} posts.
-                    Ex: do primeiro:`, dados[0].title);
+    console.log(`Lidos ${dados.length} posts. Exemplo do primeiro:`, dados[0]);
 }
 
 //GET /posts/1
@@ -30,7 +29,7 @@ async function buscarPorId(id:number){
     const res = await fetch(`${BASE_URL}/posts/${id}`);
     const dados: Post = await res.json();
     console.log(`✅ Status: ${res.status}`);
-    console.log(`titulo do post ${id}:`, dados.title);
+    console.log(`Post ${id}:`, dados);
 }
 
 //GET /posts/1/comments
@@ -39,14 +38,27 @@ async function listarComent(postId: number){
     const res = await fetch(`${BASE_URL}/posts/${postId}/comments`);
     const dados: Coment[] = await res.json();
     console.log(`✅ Status: ${res.status}`);
-    console.log(`O post ${postId} tem ${dados.length}: comentários.
-                    Ex: Email do primeiro comentário.`, dados[0].email);
+    console.log(`O post ${postId} tem ${dados.length} comentários. Exemplo do primeiro:`, dados[0]);
 }
 
-async function chamarReqs(){
-    listarPost();
-    buscarPorId(1);
-    listarComent(1);
+// POST /posts
+async function criarPost(novo: Post) {
+    console.log(`--- 4. POST /posts ---`);
+    const res = await fetch(`${BASE_URL}/posts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(novo),
+    });
+    const dados: Post = await res.json();
+    console.log(`✅ Status: ${res.status}`);
+    console.log('Post criado:', dados);
+}
+
+async function chamarReqs() {
+    await listarPost();
+    await buscarPorId(1);
+    await listarComent(1);
+    await criarPost({ userId: 1, title: 'Meu post', body: 'Conteúdo de teste' });
 }
 
 chamarReqs();
