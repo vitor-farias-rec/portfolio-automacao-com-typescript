@@ -34,5 +34,19 @@ test.describe('teste api lojaQA',()=>{
         expect(resBody).toHaveProperty("token");
         expect(typeof resBody.token).toBe('string');
         expect(resBody.token.length).toBeGreaterThan(10);
-     });
+    });
+
+     test('Login lojaQA invalido', async ({request})=>{
+        const res = await request.post(`${APIUrl}/login`,
+        {
+            data: {
+                "email": "admin@system.com",
+                "password": "SenhaErrada123"
+            }
+        })
+    expect(res.status()).toBe(401)
+    const erroBody = await res.json();
+    expect(erroBody.token).toBeUndefined();
+    expect(erroBody.error).toBe('Credenciais inválidas.');
+    })
 })
