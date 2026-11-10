@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-import {LoginPage} from '../pages/login.page.ts';
+import {LoginPage} from '../../pages/login.page.ts';
 
 test.describe('Login Tests com Page Object Model', () =>{
     let loginPage: LoginPage;
