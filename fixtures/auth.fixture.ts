@@ -7,7 +7,7 @@ type authFixture={
 };
 
 //Entregando a página estanciada no teste
-export const test = base.extend.authFixture>({
+export const test = base.extend<authFixture>({
     loginPage: async ({page}, use)=>{
         const loginPage = new LoginPage(page);
         await loginPage.goto();
@@ -15,7 +15,7 @@ export const test = base.extend.authFixture>({
     },
     //Entretando página logada
     loggedPage: async ({page}, use)=>{
-        const loginPage = new LoginPage();
+        const loginPage = new LoginPage(page);
         await loginPage.goto();
         await loginPage.login('admin@system.com', 'AdminPassword123');
         await page.waitForURL(/painel\.html/);

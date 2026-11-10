@@ -12,6 +12,7 @@ export class LoginPage{
     readonly loginButton: Locator;
     readonly errorMessage: Locator;
     readonly credentialsBox: Locator;
+    readonly statusMessage: Locator;
     
     constructor(private page:Page){
         this.emailInput = page.locator('#email');

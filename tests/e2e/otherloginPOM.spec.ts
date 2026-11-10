@@ -1,11 +1,11 @@
 import {test, expect} from '@playwright/test';
-import {LoginPage} from '../../pages/login.page.ts';
+import {LoginPage} from '../../pages/loginpage';
 
 test.describe('Login Tests com Page Object Model', () =>{
     let loginPage: LoginPage;
 
     test.beforeEach(async ({page}) =>{
-        loginPage = new LoginPage({page});
+        loginPage = new LoginPage(page);
         await loginPage.goto();
     })
 
@@ -17,6 +17,6 @@ test.describe('Login Tests com Page Object Model', () =>{
     });
 
     test('Testar visibilidade do botão de login', async ({page}) =>{
-        await expect(loginPage.loginButton).toBeDisable();
+        await expect(loginPage.loginButton).toBeDisabled();
     })
 });

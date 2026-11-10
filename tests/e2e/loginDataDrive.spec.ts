@@ -31,7 +31,7 @@ const cenarios: Cenario[] = [
   },
 ];
 
-test.describe('Testes de login com Data-Driven', () => {
+test.describe('Testes de login com Data-Driven', ()=>{
   for (const cenario of cenarios) {
     test(cenario.titulo, async ({ loginPage, page }) => {
       await loginPage.login(cenario.email, cenario.senha);
