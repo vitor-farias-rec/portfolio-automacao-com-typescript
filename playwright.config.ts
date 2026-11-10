@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-    testDir: './e2e/tests',
+    testDir: './tests/e2e/**',
     reporter: [['html', { open: 'never' }]],
 });
